@@ -19,16 +19,22 @@ class App extends Component {
    console.log(this.state)
   }
 
+  renderResquest = async (search) => {
+    try {
+      const user = await requestEndpointGetUsers(search);
+      const repos = await requestEndpointGetStarred(search);
+      this.setState({search , user, repos});
+    } catch (err) {
+      this.setState({error: true});
+    }
+  }
+
   handleSubmite = e => {
     e.preventDefault();
       let valueTarget = e.target.inputSearchUser.value;
       if (valueTarget.length >= 2) {
         let search = encodeURI(valueTarget);
-        ((async () => {
-          const user = await requestEndpointGetUsers(search);
-          const repos = await requestEndpointGetStarred(search);
-          this.setState({search , user, repos});
-        })()).catch(() => this.setState({ error: true }))
+        this.renderResquest(search);
       }
   };
 

@@ -5,7 +5,7 @@ import responseStarred from '../response/starred';
 const requestEndpointGetStarred = async (user) => {
     const response = await serviceGet(
     endpointGetListStarred(user))
-    return await responseStarred(response)
+    return responseStarred(response)
 }
 
 export default requestEndpointGetStarred;
