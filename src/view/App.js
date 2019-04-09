@@ -3,13 +3,16 @@ import React, { Component } from 'react';
 import requestEndpointGetUsers from '../model/request/users';
 import requestEndpointGetRepos from '../model/request/repos';
 import Search from '../view/search/Search';
+import { Row } from '../view/styled/Layout';
 import Cards from './card/Cards';
 import { Container } from 'react-bootstrap';
 
 class App extends Component {
   state = { 
-    user:[],
-    repos:[],
+    user: [],
+    repos: {
+      data: []
+    },
     search: '',
     load: false,
     error: false
@@ -43,10 +46,12 @@ class App extends Component {
 
     return (
       <Container>
+        <Row>
           <Search
           handleSubmite={this.handleSubmite}  />
           <Cards user={user} repos={repos} />
           {error && 'porra erro'}
+        </Row>
       </Container>
     );
   }

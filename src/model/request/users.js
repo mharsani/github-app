@@ -4,8 +4,8 @@ import responseUsers from '../response/users';
 
 const requestEndpointGetUsers = async (users) => {
     const response = await serviceGet(
-        endpointGetUsers(users))
-        return responseUsers(response)
+    endpointGetUsers(users))
+    return responseUsers(response)
 }
 
 export default requestEndpointGetUsers;
