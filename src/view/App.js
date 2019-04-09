@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import requestEndpointGetUsers from '../model/request/users';
-import requestEndpointGetStarred from '../model/request/starred';
+import requestEndpointGetRepos from '../model/request/repos';
 import Search from '../view/search/Search';
 import Cards from './card/Cards';
 import { Container } from 'react-bootstrap';
@@ -19,13 +19,13 @@ class App extends Component {
    console.log(this.state)
   }
 
-  renderResquest = async (search) => {
+  renderResquest = async search => {
     try {
       const user = await requestEndpointGetUsers(search);
-      const repos = await requestEndpointGetStarred(search);
+      const repos = await requestEndpointGetRepos(search);
       this.setState({search , user, repos});
     } catch (err) {
-      this.setState({error: true});
+      this.setState({ error: true });
     }
   }
 

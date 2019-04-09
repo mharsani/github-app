@@ -1,4 +1,4 @@
-const responseStarred = r => {
+const responseRepos = r => {
     let response = {
         data: r.data.map(
             ({
@@ -25,4 +25,4 @@ const responseStarred = r => {
     return response;
   };
 
-  export default responseStarred;
+  export default responseRepos;
