@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { InputGroup, FormControl, Button, Form } from "react-bootstrap";
+import PropTypes from 'prop-types';
 
 const Search = ({ handleSubmite }) => (
   <Fragment>
@@ -20,5 +21,10 @@ const Search = ({ handleSubmite }) => (
     </Form>
   </Fragment>
 );
+
+Search.propTypes = {
+  handleSubmite: PropTypes.func.isRequired
+};
+
 
 export default Search;

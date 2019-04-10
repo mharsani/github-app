@@ -3,9 +3,11 @@ import React, { Component } from "react";
 import requestEndpointGetUsers from "../model/request/users";
 import requestEndpointGetRepos from "../model/request/repos";
 import Search from "../view/search/Search";
-import { Row, Overlay, SpinStyle } from "../view/styled/Layout";
+import Message from "../view/message/Message";
+import Loader from "../view/loader/Loader";
+import { Row} from "../view/styled/Layout";
 import Cards from "./card/Cards";
-import { Container, Alert, Spinner } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 class App extends Component {
   state = {
@@ -55,18 +57,12 @@ class App extends Component {
       <Container>
         <Row>
           <Search handleSubmite={this.handleSubmite} />
-          
           {!isFirstRender && !error && <Cards user={user} repos={repos} isReposEmpty={isReposEmpty} /> }
           {error && (
-            <Alert variant="danger">
-              <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-            </Alert>
+            <Message variant="danger" message="Oh snap! You got an error!" />
           )}
         </Row>
-        <SpinStyle load={load}>
-          <Spinner animation="grow" size="lg" /> 
-        </SpinStyle>
-        <Overlay load={load} />
+        <Loader load={load}/>
       </Container>
     );
   }
