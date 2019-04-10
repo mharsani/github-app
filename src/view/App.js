@@ -1,57 +1,72 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import requestEndpointGetUsers from '../model/request/users';
-import requestEndpointGetRepos from '../model/request/repos';
-import Search from '../view/search/Search';
-import { Row } from '../view/styled/Layout';
-import Cards from './card/Cards';
-import { Container } from 'react-bootstrap';
+import requestEndpointGetUsers from "../model/request/users";
+import requestEndpointGetRepos from "../model/request/repos";
+import Search from "../view/search/Search";
+import { Row, Overlay, SpinStyle } from "../view/styled/Layout";
+import Cards from "./card/Cards";
+import { Container, Alert, Spinner } from "react-bootstrap";
 
 class App extends Component {
-  state = { 
+  state = {
     user: [],
     repos: {
       data: []
     },
-    search: '',
+    search: "",
     load: false,
-    error: false
-  }
+    error: false,
+    isReposEmpty: false,
+    isFirstRender: false
+  };
 
   componentDidMount = () => {
-   console.log(this.state)
-  }
+    this.setState({ isFirstRender: true });
+  };
 
   renderResquest = async search => {
+    this.setState({ load: true,  isFirstRender: false });
     try {
       const user = await requestEndpointGetUsers(search);
       const repos = await requestEndpointGetRepos(search);
-      this.setState({search , user, repos});
+      this.setState({ search, user, repos, load: false, error: false, isReposEmpty: false });
+      if (repos.data.length === 0) {
+          return this.setState({ isReposEmpty: true });
+      }
+      this.setState({ isReposEmpty: false });
     } catch (err) {
-      this.setState({ error: true });
+      this.setState({ error: true, load: false });
     }
-  }
+  };
 
   handleSubmite = e => {
     e.preventDefault();
-      let valueTarget = e.target.inputSearchUser.value;
-      if (valueTarget.length >= 2) {
-        let search = encodeURI(valueTarget);
-        this.renderResquest(search);
-      }
+    let valueTarget = e.target.inputSearchUser.value;
+    if (valueTarget.length >= 2) {
+      let search = encodeURI(valueTarget);
+      this.renderResquest(search);
+    }
   };
 
   render() {
-    const { user, repos, error } = this.state;
+    const { user, repos, error, isReposEmpty, load, isFirstRender} = this.state;
 
     return (
       <Container>
         <Row>
-          <Search
-          handleSubmite={this.handleSubmite}  />
-          <Cards user={user} repos={repos} />
-          {error && 'porra erro'}
+          <Search handleSubmite={this.handleSubmite} />
+          
+          {!isFirstRender && !error && <Cards user={user} repos={repos} isReposEmpty={isReposEmpty} /> }
+          {error && (
+            <Alert variant="danger">
+              <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+            </Alert>
+          )}
         </Row>
+        <SpinStyle load={load}>
+          <Spinner animation="grow" size="lg" /> 
+        </SpinStyle>
+        <Overlay load={load} />
       </Container>
     );
   }
