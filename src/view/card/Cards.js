@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Card, Badge, Col, Row } from "react-bootstrap";
 import { ImageUser, CardContainer, CardUser } from "../../view/styled/Layout";
 import Message from "../../view/message/Message";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Cards = ({ user, repos, isReposEmpty }) => (
   <Fragment>
@@ -54,16 +54,14 @@ const Cards = ({ user, repos, isReposEmpty }) => (
           )
       )}
     </Row>
-    {isReposEmpty &&
-      <Message variant="danger" message="Empty Repository" />
-    }
+    {isReposEmpty && <Message variant="danger" message="Empty Repository" />}
   </Fragment>
 );
 
 Cards.propTypes = {
   isReposEmpty: PropTypes.bool.isRequired,
   repos: PropTypes.object.isRequired,
-  user: PropTypes.array.isRequired
+  user: PropTypes.object.isRequired
 };
 
 export default Cards;

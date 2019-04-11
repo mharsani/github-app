@@ -1,11 +1,10 @@
-import serviceGet from '../service/index';
-import endpointGetUsers from '../endpoint/users';
-import responseUsers from '../response/users';
+import serviceGet from "../service/index";
+import endpointGetUsers from "../endpoint/users";
+import responseUsers from "../response/users";
 
-const requestEndpointGetUsers = async (users) => {
-    const response = await serviceGet(
-    endpointGetUsers(users))
-    return responseUsers(response)
-}
+const requestEndpointGetUsers = async users => {
+  const response = await serviceGet(endpointGetUsers(users));
+  return responseUsers(response);
+};
 
 export default requestEndpointGetUsers;

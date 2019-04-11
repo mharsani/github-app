@@ -11,7 +11,7 @@ import { Container } from "react-bootstrap";
 
 class App extends Component {
   state = {
-    user: [],
+    user: {},
     repos: {
       data: []
     },
@@ -27,11 +27,11 @@ class App extends Component {
   };
 
   renderResquest = async search => {
-    this.setState({ load: true,  isFirstRender: false });
+    this.setState({ load: true,  isFirstRender: false, search});
     try {
       const user = await requestEndpointGetUsers(search);
       const repos = await requestEndpointGetRepos(search);
-      this.setState({ search, user, repos, load: false, error: false, isReposEmpty: false });
+      this.setState({ user, repos, load: false, error: false, isReposEmpty: false });
       if (repos.data.length === 0) {
           return this.setState({ isReposEmpty: true });
       }

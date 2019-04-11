@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout Component CardContainer styled component test  1`] = `
+<div
+  className="sc-ifAKCX qDbXr"
+/>
+`;
+
+exports[`Layout Component CardUser styled component test 1`] = `
+<div
+  className="sc-bxivhb jgNNFH"
+/>
+`;
+
+exports[`Layout Component CardUser styled component test reverse 1`] = `
+<div
+  className="sc-bxivhb jgNNFH"
+/>
+`;
+
+exports[`Layout Component Column styled component test dont reverse, table and small 1`] = `
+<img
+  className="sc-htpNat gqTyeo"
+  theme={
+    Object {
+      "borders": Object {},
+      "breakpoints": Array [
+        30,
+        36,
+        48,
+        62,
+        75,
+        100,
+      ],
+      "colors": Object {
+        "color01": "#FFF",
+        "color02": "#000",
+        "color03": "rgba(0,0,0,.125)",
+        "color04": "#ffffff80",
+      },
+      "fontSizes": Array [
+        0.75,
+        0.875,
+        1,
+        1.125,
+        1.5,
+        1.875,
+      ],
+      "fontWeights": Object {},
+      "letterSpacings": Object {},
+      "lineHeights": Object {},
+      "opacity": Object {},
+      "radii": Object {},
+      "shadows": Object {},
+    }
+  }
+/>
+`;
+
+exports[`Layout Component Column styled component test reverse 1`] = `
+<div
+  className="sc-bxivhb jgNNFH"
+/>
+`;
+
+exports[`Layout Component Column styled component test small 1`] = `
+<div
+  className="sc-EHOje exEyFl"
+/>
+`;
+
+exports[`Layout Component Column styled component test small 2`] = `
+<div
+  className="sc-bZQynM hOiolA"
+/>
+`;
+
+exports[`Layout Component Column styled component test table 1`] = `
+<div
+  className="sc-ifAKCX qDbXr"
+/>
+`;
+
+exports[`Layout Component ImageUser styled component test reverse 1`] = `
+<img
+  className="sc-htpNat gqTyeo"
+  theme={
+    Object {
+      "borders": Object {},
+      "breakpoints": Array [
+        30,
+        36,
+        48,
+        62,
+        75,
+        100,
+      ],
+      "colors": Object {
+        "color01": "#FFF",
+        "color02": "#000",
+        "color03": "rgba(0,0,0,.125)",
+        "color04": "#ffffff80",
+      },
+      "fontSizes": Array [
+        0.75,
+        0.875,
+        1,
+        1.125,
+        1.5,
+        1.875,
+      ],
+      "fontWeights": Object {},
+      "letterSpacings": Object {},
+      "lineHeights": Object {},
+      "opacity": Object {},
+      "radii": Object {},
+      "shadows": Object {},
+    }
+  }
+/>
+`;
+
+exports[`Layout Component Overlay styled component test  1`] = `
+<div
+  className="sc-EHOje exEyFl"
+/>
+`;
+
+exports[`Layout Component Row styled component test 1`] = `
+<div
+  className="sc-bwzfXH gIdJCH"
+/>
+`;
+
+exports[`Layout Component SpinStyle styled component 1`] = `
+<div
+  className="sc-bZQynM hOiolA"
+/>
+`;
+
+exports[`Layout Component Wrapper styled component test 1`] = `
+<div
+  className="sc-bdVaJa dGIfxd"
+/>
+`;
